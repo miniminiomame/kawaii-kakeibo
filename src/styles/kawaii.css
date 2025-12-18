@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Zen+Maru+Gothic:wght@400;700&display=swap');
+
 :root {
     /* Kawaii Pastel Palette 2.0 */
     --color-bg-base: #fffbfb;
@@ -6,6 +8,8 @@
     --color-primary-shadow: #ff6b85;
     --color-secondary-pop: #a0e8d0;
     --color-secondary-shadow: #7ac7b0;
+
+    --font-main: "Mochiy Pop P One", "Zen Maru Gothic", sans-serif;
 
     --shadow-sm: 0 2px 5px rgba(255, 143, 163, 0.2);
     --shadow-push: 0 6px 0 var(--color-primary-shadow);

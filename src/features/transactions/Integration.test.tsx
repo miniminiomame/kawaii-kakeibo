@@ -16,6 +16,8 @@ describe('Transaction Flow', () => {
         await user.type(amountInput, '1500');
 
         const noteInput = screen.getByLabelText('メモ');
+        await user.type(noteInput, 'Lunch');
+
         // 2. Add transaction
         const submitBtn = screen.getByRole('button', { name: /記録する/i });
         await user.click(submitBtn);
