@@ -1,0 +1,58 @@
+:root {
+    /* Kawaii Pastel Palette 2.0 */
+    --color-bg-base: #fffbfb;
+    --color-bg-accent: #ffeef2;
+    --color-primary-pop: #ff8fa3;
+    --color-primary-shadow: #ff6b85;
+    --color-secondary-pop: #a0e8d0;
+    --color-secondary-shadow: #7ac7b0;
+
+    --shadow-sm: 0 2px 5px rgba(255, 143, 163, 0.2);
+    --shadow-push: 0 6px 0 var(--color-primary-shadow);
+    --shadow-push-active: 0 2px 0 var(--color-primary-shadow);
+
+    --pattern-polka: radial-gradient(#ffd1dc 20%, transparent 20%) 0 0;
+}
+
+body {
+    background-color: var(--color-bg-base);
+    background-image: var(--pattern-polka);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+    opacity: 0.95;
+    /* Soften pattern */
+}
+
+@keyframes jelly {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    30% {
+        transform: scale(1.25, 0.75);
+    }
+
+    40% {
+        transform: scale(0.75, 1.25);
+    }
+
+    50% {
+        transform: scale(1.15, 0.85);
+    }
+
+    65% {
+        transform: scale(0.95, 1.05);
+    }
+
+    75% {
+        transform: scale(1.05, 0.95);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.kawaii-bounce:active {
+    animation: jelly 0.4s;
+}

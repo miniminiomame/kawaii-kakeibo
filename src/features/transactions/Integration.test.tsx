@@ -16,12 +16,11 @@ describe('Transaction Flow', () => {
         await user.type(amountInput, '1500');
 
         const noteInput = screen.getByLabelText('メモ');
-        await user.type(noteInput, 'Lunch');
-
+        // 2. Add transaction
         const submitBtn = screen.getByRole('button', { name: /記録する/i });
         await user.click(submitBtn);
 
-        // 3. Should auto-switch to List tab and show transaction
+        // 3. Should auto-switch to List tab (verified by checking for list content)
         await waitFor(() => {
             expect(screen.getByText('-¥1,500')).toBeInTheDocument();
             expect(screen.getByText('Lunch')).toBeInTheDocument();

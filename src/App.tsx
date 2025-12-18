@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Layout } from './components/Layout';
-import { Button } from './components/ui/Button';
+// Button removed as it is used in sub-components, not here anymore
+import { BottomNav } from './components/ui/BottomNav';
 import { TransactionForm } from './features/transactions/TransactionForm';
 import { TransactionList } from './features/transactions/TransactionList';
 import { Summary } from './features/summary/Summary';
@@ -17,30 +18,6 @@ function App() {
         <h1 className={styles.title}>Kawaii Kakeibo 🎀</h1>
       </header>
 
-      <div className={styles.tabContainer}>
-        <Button
-          variant={activeTab === 'input' ? 'primary' : 'secondary'}
-          className={activeTab !== 'input' ? styles.inactiveTab : ''}
-          onClick={() => setActiveTab('input')}
-        >
-          入力 ✏️
-        </Button>
-        <Button
-          variant={activeTab === 'list' ? 'primary' : 'secondary'}
-          className={activeTab !== 'list' ? styles.inactiveTab : ''}
-          onClick={() => setActiveTab('list')}
-        >
-          一覧 📖
-        </Button>
-        <Button
-          variant={activeTab === 'summary' ? 'primary' : 'secondary'}
-          className={activeTab !== 'summary' ? styles.inactiveTab : ''}
-          onClick={() => setActiveTab('summary')}
-        >
-          分析 📊
-        </Button>
-      </div>
-
       <div className={styles.content}>
         {activeTab === 'input' && (
           <TransactionForm onSubmit={(tx) => {
@@ -55,6 +32,8 @@ function App() {
           <Summary transactions={transactions} />
         )}
       </div>
+
+      <BottomNav activeTab={activeTab} onSwitch={setActiveTab} />
     </Layout>
   )
 }
