@@ -36,6 +36,16 @@
     color: #999 !important;
 }
 
+.settingDesc {
+    font-size: 0.8rem;
+    color: var(--color-text-sub);
+    margin-bottom: var(--spacing-sm);
+}
+
+.budgetInput {
+    max-width: 200px;
+}
+
 .version {
     text-align: center;
     color: #ccc;

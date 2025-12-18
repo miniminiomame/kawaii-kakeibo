@@ -1,10 +1,13 @@
 import { useTheme } from '../../context/ThemeContext';
+import { useSettings } from '../../context/SettingsContext';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
+import { Input } from '../../components/ui/Input';
 import styles from './Settings.module.css';
 
 export function Settings() {
     const { theme, setTheme } = useTheme();
+    const { budgetLimit, setBudgetLimit } = useSettings();
 
     return (
         <div className={styles.container}>
@@ -32,7 +35,22 @@ export function Settings() {
                 </div>
 
                 <div className={styles.section}>
-                    <p className={styles.version}>Kawaii Kakeibo v1.0.0</p>
+                    <h3 className={styles.sectionTitle}>貯金アラート設定 💰</h3>
+                    <p className={styles.settingDesc}>
+                        この金額以上の収入があった時、貯金を提案します。
+                    </p>
+                    <div className={styles.budgetInput}>
+                        <Input
+                            label="目標ライン (円)"
+                            type="number"
+                            value={budgetLimit}
+                            onChange={(e) => setBudgetLimit(Number(e.target.value))}
+                        />
+                    </div>
+                </div>
+
+                <div className={styles.section}>
+                    <p className={styles.version}>Kawaii Kakeibo v1.1.0 (Autonomous)</p>
                 </div>
             </Card>
         </div>

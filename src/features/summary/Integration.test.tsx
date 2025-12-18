@@ -2,6 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import App from '../../App';
 import { ThemeProvider } from '../../context/ThemeContext';
+import { SettingsProvider } from '../../context/SettingsContext';
 import { userEvent } from '@testing-library/user-event';
 
 describe('Summary Visualization', () => {
@@ -9,7 +10,9 @@ describe('Summary Visualization', () => {
         const user = userEvent.setup();
         render(
             <ThemeProvider>
-                <App />
+                <SettingsProvider>
+                    <App />
+                </SettingsProvider>
             </ThemeProvider>
         );
 

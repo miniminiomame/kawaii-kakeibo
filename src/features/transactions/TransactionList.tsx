@@ -1,6 +1,7 @@
 import { type Transaction } from './types.ts';
 import { Card } from '../../components/ui/Card.tsx';
 import { getCategoryLabel } from '../../constants/categories.ts';
+import { useSound } from '../../hooks/useSound';
 import styles from './TransactionList.module.css';
 
 interface TransactionListProps {
@@ -9,6 +10,13 @@ interface TransactionListProps {
 }
 
 export function TransactionList({ transactions, onDelete }: TransactionListProps) {
+    const { playDelete } = useSound();
+
+    const handleDelete = (id: string) => {
+        playDelete();
+        onDelete(id);
+    };
+
     // Group by date
     const grouped = transactions.reduce((acc, tx) => {
         const key = tx.date;
@@ -46,7 +54,7 @@ export function TransactionList({ transactions, onDelete }: TransactionListProps
                                         {tx.type === 'income' ? '+' : '-'}¥{tx.amount.toLocaleString()}
                                     </span>
                                     <button
-                                        onClick={() => onDelete(tx.id)}
+                                        onClick={() => handleDelete(tx.id)}
                                         className={styles.deleteBtn}
                                         aria-label="削除"
                                     >

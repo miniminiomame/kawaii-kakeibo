@@ -5,6 +5,8 @@ import { Select } from '../../components/ui/Select.tsx';
 import { Card } from '../../components/ui/Card.tsx';
 import { type Transaction, type TransactionType } from './types.ts';
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from '../../constants/categories.ts';
+import { useSettings } from '../../context/SettingsContext';
+import { useSound } from '../../hooks/useSound';
 import styles from './TransactionForm.module.css';
 
 interface TransactionFormProps {
@@ -12,6 +14,8 @@ interface TransactionFormProps {
 }
 
 export function TransactionForm({ onSubmit }: TransactionFormProps) {
+    const { budgetLimit } = useSettings();
+    const { playSuccess } = useSound();
     const [type, setType] = useState<TransactionType>('expense');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
@@ -30,12 +34,14 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
             note,
         });
 
+        playSuccess();
+
         // Reset form
         setAmount('');
         setNote('');
     };
 
-    const isHighIncome = type === 'income' && parseInt(amount || '0') >= 150000;
+    const isHighIncome = type === 'income' && parseInt(amount || '0') >= budgetLimit;
 
     return (
         <Card className={styles.formCard}>
