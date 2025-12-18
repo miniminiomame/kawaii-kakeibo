@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.empty {
+    text-align: center;
+    color: var(--color-text-sub);
+    margin-top: var(--spacing-xl);
+}
+
+.dateHeader {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-sub);
+    margin-bottom: var(--spacing-xs);
+    margin-left: var(--spacing-xs);
+}
+
+.txCard {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.txRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.txInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.emoji {
+    font-size: var(--font-size-lg);
+    background: var(--color-bg-base);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    font-weight: bold;
+    font-size: var(--font-size-md);
+}
+
+.note {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-sub);
+}
+
+.txAmount {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: bold;
+    font-family: monospace;
+    /* For number alignment */
+    font-size: var(--font-size-lg);
+}
+
+.income {
+    color: var(--color-secondary);
+}
+
+.expense {
+    color: var(--color-danger);
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #DDD;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.deleteBtn:hover {
+    color: var(--color-danger);
+}
