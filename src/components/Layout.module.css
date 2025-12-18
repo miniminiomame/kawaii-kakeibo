@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-bg-base);
+}
+
+.main {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-bg-card);
+  min-height: 100vh;
+  padding: var(--spacing-md);
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  position: relative;
+}

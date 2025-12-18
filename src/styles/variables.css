@@ -1,0 +1,38 @@
+/* Kawaii Design System - CSS Variables */
+:root {
+    /* Colors - Pastel Palette */
+    --color-primary: #FFB7B2;
+    /* Soft Pink */
+    --color-secondary: #B5EAD7;
+    /* Mint Green */
+    --color-accent: #E2F0CB;
+    /* Soft Yellow/Green */
+    --color-text-main: #4A4A4A;
+    /* Dark Grey (not black) */
+    --color-text-sub: #888888;
+    --color-bg-base: #F9F9F9;
+    /* Off-white background */
+    --color-bg-card: #FFFFFF;
+    --color-danger: #FF9AA2;
+    /* Salmon red */
+
+    /* Typography */
+    --font-main: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Borders */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-round: 9999px;
+}
