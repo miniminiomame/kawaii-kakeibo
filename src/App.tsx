@@ -15,7 +15,7 @@ function App() {
   return (
     <Layout>
       <header className={styles.header}>
-        <h1 className={styles.title}>Kawaii Kakeibo 🎀</h1>
+        <h1 className={styles.title}>かけいぼっ！</h1>
       </header>
 
       <div className={styles.content}>

@@ -33,7 +33,7 @@ export function Summary({ transactions }: SummaryProps) {
     // Simple Pie Chart Logic (Conic Gradient)
     const totalForChart = totalExpense || 1; // Avoid divide by zero
     let currentAngle = 0;
-    const gradientParts = sortedCategories.map(([_, amount], index) => {
+    const gradientParts = sortedCategories.map(([, amount], index) => {
         const percentage = (amount / totalForChart) * 100;
         const start = currentAngle;
         const end = currentAngle + percentage;

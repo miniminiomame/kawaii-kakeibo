@@ -20,35 +20,39 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        if (!amount) return;
+        if (!amount || !category) return;
 
         onSubmit({
             type,
-            amount: Number(amount),
             date,
+            amount: parseInt(amount),
             category,
             note,
         });
 
-        // Reset some fields
+        // Reset form
         setAmount('');
         setNote('');
     };
 
+    const isHighIncome = type === 'income' && parseInt(amount || '0') >= 150000;
+
     return (
-        <Card className={styles.container}>
+        <Card className={styles.formCard}>
             <div className={styles.typeToggle}>
                 <Button
+                    type="button"
                     variant={type === 'expense' ? 'danger' : 'secondary'}
-                    className={type === 'income' ? styles.inactive : ''}
-                    onClick={() => { setType('expense'); setCategory('food'); }}
+                    onClick={() => setType('expense')}
+                    className={type !== 'expense' ? styles.inactive : ''}
                 >
-                    出費 💸
+                    支出 💸
                 </Button>
                 <Button
-                    variant={type === 'income' ? 'secondary' : 'secondary'}
-                    className={type === 'expense' ? styles.inactive : ''}
-                    onClick={() => { setType('income'); setCategory('salary'); }}
+                    type="button"
+                    variant={type === 'income' ? 'primary' : 'secondary'}
+                    onClick={() => setType('income')}
+                    className={type !== 'income' ? styles.inactive : ''}
                 >
                     収入 💰
                 </Button>
@@ -59,17 +63,26 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
                     label="日付"
                     type="date"
                     value={date}
-                    onChange={e => setDate(e.target.value)}
+                    onChange={(e) => setDate(e.target.value)}
                     required
                 />
-                <Input
-                    label="金額 (円)"
-                    type="number"
-                    value={amount}
-                    onChange={e => setAmount(e.target.value)}
-                    placeholder="0"
-                    required
-                />
+
+                <div>
+                    <Input
+                        label="金額 (円)"
+                        type="number"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        placeholder="0"
+                        required
+                        min="1"
+                    />
+                    {isHighIncome && (
+                        <div className={styles.savingsAlert}>
+                            ✨ すごい！10% (¥{(parseInt(amount) * 0.1).toLocaleString()}) を貯金しよう！ 🏦
+                        </div>
+                    )}
+                </div>
                 <Select
                     label="カテゴリー"
                     options={type === 'expense' ? EXPENSE_CATEGORIES : INCOME_CATEGORIES}
