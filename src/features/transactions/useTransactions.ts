@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Transaction } from './types.ts';
+import { type Transaction } from './types.ts';
 
 const STORAGE_KEY = 'kawaii_kakeibo_transactions';
 

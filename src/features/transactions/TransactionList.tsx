@@ -1,4 +1,4 @@
-import { Transaction } from './types.ts';
+import { type Transaction } from './types.ts';
 import { Card } from '../../components/ui/Card.tsx';
 import { getCategoryLabel } from '../../constants/categories.ts';
 import styles from './TransactionList.module.css';

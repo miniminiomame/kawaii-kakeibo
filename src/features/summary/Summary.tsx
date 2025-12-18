@@ -1,4 +1,4 @@
-import { Transaction } from '../transactions/types';
+import { type Transaction } from '../transactions/types';
 import { Card } from '../../components/ui/Card';
 import { getCategoryLabel } from '../../constants/categories';
 import styles from './Summary.module.css';

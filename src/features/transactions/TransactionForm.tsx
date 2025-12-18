@@ -1,9 +1,9 @@
-import { useState, FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Button } from '../../components/ui/Button.tsx';
 import { Input } from '../../components/ui/Input.tsx';
 import { Select } from '../../components/ui/Select.tsx';
 import { Card } from '../../components/ui/Card.tsx';
-import { Transaction, TransactionType } from './types.ts';
+import { type Transaction, type TransactionType } from './types.ts';
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from '../../constants/categories.ts';
 import styles from './TransactionForm.module.css';
 

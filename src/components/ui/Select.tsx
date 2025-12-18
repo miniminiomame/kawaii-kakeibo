@@ -1,4 +1,4 @@
-import { SelectHTMLAttributes, useId } from 'react';
+import { type SelectHTMLAttributes, useId } from 'react';
 import styles from './Input.module.css'; // Reusing Input styles for consistency
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
