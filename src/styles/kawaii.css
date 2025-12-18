@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Zen+Maru+Gothic:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Mochiy+Pop+P+One&family=Zen+Maru+Gothic:wght@400;700&display=swap');
 
 :root {
     /* Kawaii Pastel Palette 2.0 */
@@ -25,6 +25,24 @@ body {
     background-attachment: fixed;
     opacity: 0.95;
     /* Soften pattern */
+}
+
+/* Pixel Mode Overrides */
+[data-theme='pixel'] body {
+    cursor: crosshair;
+    /* Retro feel */
+    font-family: 'DotGothic16', sans-serif;
+    /* We will need to import this */
+    image-rendering: pixelated;
+    /* Use the generated pixel pattern if available, or fallback */
+    background-image: var(--bg-pixel-pattern, var(--pattern-polka));
+    background-size: 64px 64px;
+}
+
+[data-theme='pixel'] .kawaii-bounce:active {
+    animation: none;
+    transform: translateY(4px);
+    /* Simple mechanical push */
 }
 
 @keyframes jelly {

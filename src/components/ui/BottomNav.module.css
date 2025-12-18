@@ -44,6 +44,12 @@
     /* Smaller icon */
 }
 
+.pixelIcon {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+}
+
 .label {
     font-size: 0.65rem;
     /* Smaller text */

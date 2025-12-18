@@ -5,11 +5,12 @@ import { BottomNav } from './components/ui/BottomNav';
 import { TransactionForm } from './features/transactions/TransactionForm';
 import { TransactionList } from './features/transactions/TransactionList';
 import { Summary } from './features/summary/Summary';
+import { Settings } from './features/settings/Settings';
 import { useTransactions } from './features/transactions/useTransactions';
 import styles from './App.module.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'input' | 'list' | 'summary'>('input');
+  const [activeTab, setActiveTab] = useState<'input' | 'list' | 'summary' | 'settings'>('input');
   const { transactions, addTransaction, deleteTransaction } = useTransactions();
 
   return (

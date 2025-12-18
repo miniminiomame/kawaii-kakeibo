@@ -1,0 +1,44 @@
+.container {
+    padding-top: var(--spacing-lg);
+    animation: fadeIn 0.3s ease;
+}
+
+.title {
+    text-align: center;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.5rem;
+}
+
+.section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    color: var(--color-text-sub);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px dashed #eee;
+    padding-bottom: 4px;
+}
+
+.themeToggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.inactive {
+    opacity: 0.6;
+    filter: grayscale(0.8);
+    box-shadow: none !important;
+    background-color: #eee !important;
+    color: #999 !important;
+}
+
+.version {
+    text-align: center;
+    color: #ccc;
+    font-size: 0.8rem;
+    margin-top: 40px;
+}
