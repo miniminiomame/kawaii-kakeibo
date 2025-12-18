@@ -32,6 +32,9 @@ function App() {
         {activeTab === 'summary' && (
           <Summary transactions={transactions} />
         )}
+        {activeTab === 'settings' && (
+          <Settings />
+        )}
       </div>
 
       <BottomNav activeTab={activeTab} onSwitch={setActiveTab} />

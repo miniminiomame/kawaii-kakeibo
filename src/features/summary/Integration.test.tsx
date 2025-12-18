@@ -1,12 +1,17 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import App from '../../App';
+import { ThemeProvider } from '../../context/ThemeContext';
 import { userEvent } from '@testing-library/user-event';
 
 describe('Summary Visualization', () => {
     it('calculates totals and shows chart legend', async () => {
         const user = userEvent.setup();
-        render(<App />);
+        render(
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        );
 
         // 1. Add an expense (Food)
         const amountInput = screen.getByLabelText('金額 (円)');

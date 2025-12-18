@@ -1,15 +1,20 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import App from '../../App';
+import { ThemeProvider } from '../../context/ThemeContext';
 import { userEvent } from '@testing-library/user-event';
 
 describe('Transaction Flow', () => {
     it('allows adding and deleting a transaction', async () => {
         const user = userEvent.setup();
-        render(<App />);
+        render(
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        );
 
         // 1. Check title
-        expect(screen.getByText('Kawaii Kakeibo 🎀')).toBeInTheDocument();
+        expect(screen.getByText('かけいぼっ！')).toBeInTheDocument();
 
         // 2. Add an expense
         const amountInput = screen.getByLabelText('金額 (円)');
