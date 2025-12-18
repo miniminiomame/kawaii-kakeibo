@@ -1,0 +1,123 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.balanceCard {
+    text-align: center;
+    background: linear-gradient(135deg, #fff, #fffbfb);
+}
+
+.label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-sub);
+    margin-bottom: var(--spacing-xs);
+}
+
+.balance {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: var(--spacing-sm) 0;
+    font-family: monospace;
+}
+
+.plus {
+    color: var(--color-text-main);
+}
+
+.minus {
+    color: var(--color-danger);
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 2px dashed #eee;
+}
+
+.incomeItem,
+.expenseItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.smLabel {
+    font-size: 0.75rem;
+    color: var(--color-text-sub);
+}
+
+.incomeVal {
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.expenseVal {
+    color: var(--color-danger);
+    font-weight: bold;
+}
+
+.chartContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    flex-direction: column;
+}
+
+.pieChart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Donut hole */
+.pieChart::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+}
+
+.legend {
+    width: 100%;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.catName {
+    flex: 1;
+}
+
+.catAmount {
+    font-weight: bold;
+}
+
+.noData {
+    text-align: center;
+    color: #ccc;
+    width: 100%;
+}

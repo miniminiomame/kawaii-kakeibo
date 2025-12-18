@@ -4,25 +4,12 @@ import { Input } from '../../components/ui/Input.tsx';
 import { Select } from '../../components/ui/Select.tsx';
 import { Card } from '../../components/ui/Card.tsx';
 import { Transaction, TransactionType } from './types.ts';
+import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from '../../constants/categories.ts';
 import styles from './TransactionForm.module.css';
 
 interface TransactionFormProps {
     onSubmit: (tx: Omit<Transaction, 'id' | 'createdAt'>) => void;
 }
-
-const EXPENSE_CATEGORIES = [
-    { value: 'food', label: '食費 🍔' },
-    { value: 'daily', label: '日用品 🧻' },
-    { value: 'transport', label: '交通費 🚃' },
-    { value: 'hobby', label: '趣味 🎮' },
-    { value: 'other', label: 'その他 📦' },
-];
-
-const INCOME_CATEGORIES = [
-    { value: 'salary', label: 'お給料 💰' },
-    { value: 'bonus', label: 'ボーナス ✨' },
-    { value: 'other', label: 'その他 🧧' },
-];
 
 export function TransactionForm({ onSubmit }: TransactionFormProps) {
     const [type, setType] = useState<TransactionType>('expense');

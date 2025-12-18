@@ -1,5 +1,6 @@
 import { Transaction } from './types.ts';
 import { Card } from '../../components/ui/Card.tsx';
+import { getCategoryLabel } from '../../constants/categories.ts';
 import styles from './TransactionList.module.css';
 
 interface TransactionListProps {
@@ -36,7 +37,7 @@ export function TransactionList({ transactions, onDelete }: TransactionListProps
                                         {tx.type === 'expense' ? '💸' : '💰'}
                                     </span>
                                     <div className={styles.details}>
-                                        <span className={styles.category}>{tx.category}</span>
+                                        <span className={styles.category}>{getCategoryLabel(tx.category)}</span>
                                         {tx.note && <span className={styles.note}>{tx.note}</span>}
                                     </div>
                                 </div>

@@ -3,11 +3,12 @@ import { Layout } from './components/Layout';
 import { Button } from './components/ui/Button';
 import { TransactionForm } from './features/transactions/TransactionForm';
 import { TransactionList } from './features/transactions/TransactionList';
+import { Summary } from './features/summary/Summary';
 import { useTransactions } from './features/transactions/useTransactions';
 import styles from './App.module.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'input' | 'list'>('input');
+  const [activeTab, setActiveTab] = useState<'input' | 'list' | 'summary'>('input');
   const { transactions, addTransaction, deleteTransaction } = useTransactions();
 
   return (
@@ -19,28 +20,39 @@ function App() {
       <div className={styles.tabContainer}>
         <Button
           variant={activeTab === 'input' ? 'primary' : 'secondary'}
-          className={activeTab === 'list' ? styles.inactiveTab : ''}
+          className={activeTab !== 'input' ? styles.inactiveTab : ''}
           onClick={() => setActiveTab('input')}
         >
           入力 ✏️
         </Button>
         <Button
           variant={activeTab === 'list' ? 'primary' : 'secondary'}
-          className={activeTab === 'input' ? styles.inactiveTab : ''}
+          className={activeTab !== 'list' ? styles.inactiveTab : ''}
           onClick={() => setActiveTab('list')}
         >
           一覧 📖
         </Button>
+        <Button
+          variant={activeTab === 'summary' ? 'primary' : 'secondary'}
+          className={activeTab !== 'summary' ? styles.inactiveTab : ''}
+          onClick={() => setActiveTab('summary')}
+        >
+          分析 📊
+        </Button>
       </div>
 
       <div className={styles.content}>
-        {activeTab === 'input' ? (
+        {activeTab === 'input' && (
           <TransactionForm onSubmit={(tx) => {
             addTransaction(tx);
-            setActiveTab('list'); // Auto switch to list on submit
+            setActiveTab('list');
           }} />
-        ) : (
+        )}
+        {activeTab === 'list' && (
           <TransactionList transactions={transactions} onDelete={deleteTransaction} />
+        )}
+        {activeTab === 'summary' && (
+          <Summary transactions={transactions} />
         )}
       </div>
     </Layout>
