@@ -29,5 +29,11 @@ export const cyberpunkTheme: ThemeConfig = {
         '--btn-border': '1px solid var(--color-secondary)',
         '--card-radius': '8px',
         '--card-border': '1px solid var(--color-primary)',
+
+        /* Colors */
+        '--color-primary-pop': '#ff0055',    /* Neon Pink */
+        '--color-primary-shadow': '#990033', /* Dark Pink Shadow */
+        '--color-secondary-pop': '#00ff9d',  /* Neon Green */
+        '--color-secondary-shadow': '#00995e', /* Dark Green Shadow */
     },
 };

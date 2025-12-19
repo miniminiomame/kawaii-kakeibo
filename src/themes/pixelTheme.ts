@@ -21,5 +21,11 @@ export const pixelTheme: ThemeConfig = {
         '--btn-border': '4px solid #000',
         '--card-radius': '4px',
         '--card-border': '4px solid #000',
+
+        /* Colors */
+        '--color-primary-pop': '#ff5252',
+        '--color-primary-shadow': '#b71c1c',
+        '--color-secondary-pop': '#69f0ae',
+        '--color-secondary-shadow': '#1b5e20',
     },
 };
