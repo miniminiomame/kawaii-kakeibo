@@ -22,10 +22,10 @@ export const defaultTheme: ThemeConfig = {
         '--card-radius': '24px',
         '--card-border': '1px solid rgba(0, 0, 0, 0.02)',
 
-        /* Colors */
-        '--color-primary-pop': '#ff8fa3',
-        '--color-primary-shadow': '#ff6b85',
-        '--color-secondary-pop': '#a0e8d0',
-        '--color-secondary-shadow': '#7ac7b0',
+        /* Colors - Cherry Blossom Palette 🌸 */
+        '--color-primary-pop': '#ffb7c5',    /* Sakura Pink (Lighter) */
+        '--color-primary-shadow': '#ff8fa3', /* Darker Pink Shadow */
+        '--color-secondary-pop': '#caffbf',  /* Soft Mint */
+        '--color-secondary-shadow': '#a0e8d0', /* Darker Mint Shadow */
     },
 };
