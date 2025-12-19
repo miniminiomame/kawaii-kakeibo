@@ -15,5 +15,11 @@ export const pixelTheme: ThemeConfig = {
         '--pattern-size': '64px 64px',
         '--cursor': 'crosshair',
         '--image-rendering': 'pixelated',
+
+        /* Components */
+        '--btn-radius': '0px',
+        '--btn-border': '4px solid #000',
+        '--card-radius': '4px',
+        '--card-border': '4px solid #000',
     },
 };

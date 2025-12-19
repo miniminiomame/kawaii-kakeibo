@@ -2,7 +2,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: var(--btn-radius);
     /* More rounded */
     font-family: var(--font-main);
     font-weight: bold;
@@ -10,7 +10,7 @@
     transition: all 0.1s;
     width: 100%;
     position: relative;
-    border: none;
+    border: var(--btn-border);
     cursor: pointer;
     padding: 12px 20px;
 

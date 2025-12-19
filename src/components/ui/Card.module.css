@@ -1,8 +1,8 @@
 .card {
     background-color: var(--color-bg-card);
-    border-radius: var(--radius-lg);
+    border-radius: var(--card-radius);
     padding: var(--spacing-lg);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: var(--card-border);
     margin-bottom: var(--spacing-md);
 }

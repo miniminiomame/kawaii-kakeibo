@@ -15,5 +15,11 @@ export const defaultTheme: ThemeConfig = {
         '--pattern-size': '20px 20px',
         '--cursor': 'auto',
         '--image-rendering': 'auto',
+
+        /* Components */
+        '--btn-radius': '20px',
+        '--btn-border': 'none',
+        '--card-radius': '24px',
+        '--card-border': '1px solid rgba(0, 0, 0, 0.02)',
     },
 };

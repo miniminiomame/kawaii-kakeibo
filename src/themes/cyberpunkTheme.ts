@@ -23,5 +23,11 @@ export const cyberpunkTheme: ThemeConfig = {
         '--image-rendering': 'auto',
         '--shadow-sm': '0 0 10px rgba(0, 255, 157, 0.5)',
         '--shadow-push': '0 0 15px rgba(255, 0, 85, 0.7)',
+
+        /* Components */
+        '--btn-radius': '2px',
+        '--btn-border': '1px solid var(--color-secondary)',
+        '--card-radius': '8px',
+        '--card-border': '1px solid var(--color-primary)',
     },
 };
