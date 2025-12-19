@@ -65,24 +65,23 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
             </div>
 
             <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.row}>
-                    <Input
-                        label="日付"
-                        type="date"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        required
-                    />
-                    <Input
-                        label="金額 (円)"
-                        type="number"
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                        placeholder="0"
-                        required
-                        min="1"
-                    />
-                </div>
+                <Input
+                    label="日付"
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                />
+
+                <Input
+                    label="金額 (円)"
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    placeholder="0"
+                    required
+                    min="1"
+                />
 
                 {isHighIncome && (
                     <div className={styles.savingsAlert}>
@@ -90,20 +89,18 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
                     </div>
                 )}
 
-                <div className={styles.row}>
-                    <Select
-                        label="カテゴリー"
-                        options={type === 'expense' ? EXPENSE_CATEGORIES : INCOME_CATEGORIES}
-                        value={category}
-                        onChange={e => setCategory(e.target.value)}
-                    />
-                    <Input
-                        label="メモ"
-                        value={note}
-                        onChange={e => setNote(e.target.value)}
-                        placeholder="コンビニなど"
-                    />
-                </div>
+                <Select
+                    label="カテゴリー"
+                    options={type === 'expense' ? EXPENSE_CATEGORIES : INCOME_CATEGORIES}
+                    value={category}
+                    onChange={e => setCategory(e.target.value)}
+                />
+                <Input
+                    label="メモ"
+                    value={note}
+                    onChange={e => setNote(e.target.value)}
+                    placeholder="コンビニなど"
+                />
 
                 <Button type="submit" variant="primary" className={styles.submitBtn}>
                     記録する 🖊️
