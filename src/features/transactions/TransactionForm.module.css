@@ -21,7 +21,12 @@
 }
 
 .submitBtn {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+/* Compact overrides */
+.form :global(.input-wrapper) {
+    margin-bottom: var(--spacing-xs);
 }
 
 .savingsAlert {

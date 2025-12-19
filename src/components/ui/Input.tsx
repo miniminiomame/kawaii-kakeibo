@@ -10,7 +10,7 @@ export function Input({ label, className = '', id, ...props }: InputProps) {
     const inputId = id || generatedId;
 
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} input-wrapper`}>
             {label && <label htmlFor={inputId} className={styles.label}>{label}</label>}
             <input
                 id={inputId}

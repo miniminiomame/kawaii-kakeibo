@@ -17,7 +17,7 @@ export interface ThemeStyles {
 }
 
 export interface ThemeConfig {
-    id: 'default' | 'pixel';
+    id: 'default' | 'pixel' | 'cyberpunk';
     name: string;
     assets: ThemeAssets;
     styles: ThemeStyles;

@@ -31,6 +31,13 @@ export function Settings() {
                         >
                             ドット絵モード 👾
                         </Button>
+                        <Button
+                            variant={themeConfig.id === 'cyberpunk' ? 'primary' : 'secondary'}
+                            onClick={() => setThemeId('cyberpunk')}
+                            className={themeConfig.id !== 'cyberpunk' ? styles.inactive : ''}
+                        >
+                            サイバー 🤖
+                        </Button>
                     </div>
                 </div>
 
