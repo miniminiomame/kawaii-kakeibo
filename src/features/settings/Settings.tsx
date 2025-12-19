@@ -6,7 +6,7 @@ import { Input } from '../../components/ui/Input';
 import styles from './Settings.module.css';
 
 export function Settings() {
-    const { theme, setTheme } = useTheme();
+    const { themeConfig, setThemeId } = useTheme();
     const { budgetLimit, setBudgetLimit } = useSettings();
 
     return (
@@ -18,16 +18,16 @@ export function Settings() {
                     <h3 className={styles.sectionTitle}>テーマ設定</h3>
                     <div className={styles.themeToggle}>
                         <Button
-                            variant={theme === 'default' ? 'primary' : 'secondary'}
-                            onClick={() => setTheme('default')}
-                            className={theme !== 'default' ? styles.inactive : ''}
+                            variant={themeConfig.id === 'default' ? 'primary' : 'secondary'}
+                            onClick={() => setThemeId('default')}
+                            className={themeConfig.id !== 'default' ? styles.inactive : ''}
                         >
                             通常モード 🎀
                         </Button>
                         <Button
-                            variant={theme === 'pixel' ? 'primary' : 'secondary'}
-                            onClick={() => setTheme('pixel')}
-                            className={theme !== 'pixel' ? styles.inactive : ''}
+                            variant={themeConfig.id === 'pixel' ? 'primary' : 'secondary'}
+                            onClick={() => setThemeId('pixel')}
+                            className={themeConfig.id !== 'pixel' ? styles.inactive : ''}
                         >
                             ドット絵モード 👾
                         </Button>

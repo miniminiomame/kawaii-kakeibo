@@ -6,13 +6,16 @@ import App from './App.tsx'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { ThemeProvider } from './context/ThemeContext.tsx'
 import { SettingsProvider } from './context/SettingsContext.tsx'
+import { TransactionProvider } from './context/TransactionContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary>
       <ThemeProvider>
         <SettingsProvider>
-          <App />
+          <TransactionProvider>
+            <App />
+          </TransactionProvider>
         </SettingsProvider>
       </ThemeProvider>
     </ErrorBoundary>

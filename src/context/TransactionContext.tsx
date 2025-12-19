@@ -1,9 +1,18 @@
-import { useState, useEffect } from 'react';
-import { type Transaction } from './types.ts';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { type Transaction } from '../features/transactions/types';
 
 const STORAGE_KEY = 'kawaii_kakeibo_transactions';
 
-export function useTransactions() {
+interface TransactionContextType {
+    transactions: Transaction[];
+    addTransaction: (tx: Omit<Transaction, 'id' | 'createdAt'>) => void;
+    deleteTransaction: (id: string) => void;
+    loading: boolean;
+}
+
+const TransactionContext = createContext<TransactionContextType | undefined>(undefined);
+
+export function TransactionProvider({ children }: { children: ReactNode }) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -41,10 +50,18 @@ export function useTransactions() {
         setTransactions(prev => prev.filter(t => t.id !== id));
     };
 
-    return {
-        transactions,
-        addTransaction,
-        deleteTransaction,
-        loading
-    };
+    return (
+        <TransactionContext.Provider value={{ transactions, addTransaction, deleteTransaction, loading }}>
+            {children}
+        </TransactionContext.Provider>
+    );
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useTransactions() {
+    const context = useContext(TransactionContext);
+    if (context === undefined) {
+        throw new Error('useTransactions must be used within a TransactionProvider');
+    }
+    return context;
 }

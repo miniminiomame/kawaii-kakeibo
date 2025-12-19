@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest';
 import App from '../../App';
 import { ThemeProvider } from '../../context/ThemeContext';
 import { SettingsProvider } from '../../context/SettingsContext';
+import { TransactionProvider } from '../../context/TransactionContext';
 import { userEvent } from '@testing-library/user-event';
 
 describe('Summary Visualization', () => {
@@ -11,7 +12,9 @@ describe('Summary Visualization', () => {
         render(
             <ThemeProvider>
                 <SettingsProvider>
-                    <App />
+                    <TransactionProvider>
+                        <App />
+                    </TransactionProvider>
                 </SettingsProvider>
             </ThemeProvider>
         );

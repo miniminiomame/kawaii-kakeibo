@@ -7,19 +7,13 @@ interface BottomNavProps {
 }
 
 export function BottomNav({ activeTab, onSwitch }: BottomNavProps) {
-    const { theme } = useTheme();
+    const { themeConfig } = useTheme();
 
-    const getIcon = (tab: string, emoji: string) => {
-        if (theme === 'pixel') {
-            const map: Record<string, string> = {
-                input: '/pixel/icon-pencil.png',
-                list: '/pixel/icon-book.png',
-                summary: '/pixel/icon-chart.png',
-                settings: '/pixel/icon-piggy.png' // Using piggy as settings/menu icon for now or I could generate a gear. Piggy is cute.
-            };
-            return <img src={map[tab]} alt={tab} className={styles.pixelIcon} />;
+    const renderIcon = (icon: React.ReactNode | string, alt: string) => {
+        if (typeof icon === 'string' && icon.startsWith('/')) {
+            return <img src={icon} alt={alt} className={styles.pixelIcon} />;
         }
-        return <span className={styles.icon}>{emoji}</span>;
+        return <span className={styles.icon}>{icon}</span>;
     };
 
     return (
@@ -28,7 +22,7 @@ export function BottomNav({ activeTab, onSwitch }: BottomNavProps) {
                 className={`${styles.navItem} ${activeTab === 'input' ? styles.active : ''}`}
                 onClick={() => onSwitch('input')}
             >
-                {getIcon('input', '✏️')}
+                {renderIcon(themeConfig.assets.iconInput, 'Input')}
                 <span className={styles.label}>入力</span>
             </button>
 
@@ -36,7 +30,7 @@ export function BottomNav({ activeTab, onSwitch }: BottomNavProps) {
                 className={`${styles.navItem} ${activeTab === 'list' ? styles.active : ''}`}
                 onClick={() => onSwitch('list')}
             >
-                {getIcon('list', '📖')}
+                {renderIcon(themeConfig.assets.iconList, 'List')}
                 <span className={styles.label}>一覧</span>
             </button>
 
@@ -44,7 +38,7 @@ export function BottomNav({ activeTab, onSwitch }: BottomNavProps) {
                 className={`${styles.navItem} ${activeTab === 'summary' ? styles.active : ''}`}
                 onClick={() => onSwitch('summary')}
             >
-                {getIcon('summary', '📊')}
+                {renderIcon(themeConfig.assets.iconSummary, 'Summary')}
                 <span className={styles.label}>分析</span>
             </button>
 
@@ -52,7 +46,7 @@ export function BottomNav({ activeTab, onSwitch }: BottomNavProps) {
                 className={`${styles.navItem} ${activeTab === 'settings' ? styles.active : ''}`}
                 onClick={() => onSwitch('settings')}
             >
-                <span className={styles.icon}>{theme === 'pixel' ? '⚙️' : '⚙️'}</span>
+                {renderIcon(themeConfig.assets.iconSettings, 'Settings')}
                 <span className={styles.label}>設定</span>
             </button>
         </nav>

@@ -15,34 +15,24 @@
     --shadow-push: 0 6px 0 var(--color-primary-shadow);
     --shadow-push-active: 0 2px 0 var(--color-primary-shadow);
 
-    --pattern-polka: radial-gradient(#ffd1dc 20%, transparent 20%) 0 0;
+    --pattern-bg: radial-gradient(#ffd1dc 20%, transparent 20%) 0 0;
+    --pattern-size: 20px 20px;
+
+    --cursor: auto;
+    --image-rendering: auto;
 }
 
 body {
     background-color: var(--color-bg-base);
-    background-image: var(--pattern-polka);
-    background-size: 20px 20px;
+    background-image: var(--pattern-bg);
+    background-size: var(--pattern-size);
     background-attachment: fixed;
     opacity: 0.95;
     /* Soften pattern */
-}
 
-/* Pixel Mode Overrides */
-[data-theme='pixel'] body {
-    cursor: crosshair;
-    /* Retro feel */
-    font-family: 'DotGothic16', sans-serif;
-    /* We will need to import this */
-    image-rendering: pixelated;
-    /* Use the generated pixel pattern if available, or fallback */
-    background-image: var(--bg-pixel-pattern, var(--pattern-polka));
-    background-size: 64px 64px;
-}
-
-[data-theme='pixel'] .kawaii-bounce:active {
-    animation: none;
-    transform: translateY(4px);
-    /* Simple mechanical push */
+    font-family: var(--font-main);
+    cursor: var(--cursor);
+    image-rendering: var(--image-rendering);
 }
 
 @keyframes jelly {

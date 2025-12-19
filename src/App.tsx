@@ -6,7 +6,7 @@ import { TransactionForm } from './features/transactions/TransactionForm';
 import { TransactionList } from './features/transactions/TransactionList';
 import { Summary } from './features/summary/Summary';
 import { Settings } from './features/settings/Settings';
-import { useTransactions } from './features/transactions/useTransactions';
+import { useTransactions } from './context/TransactionContext';
 import styles from './App.module.css';
 
 function App() {

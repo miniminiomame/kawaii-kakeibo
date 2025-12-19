@@ -4,13 +4,16 @@ import App from './App';
 
 import { ThemeProvider } from './context/ThemeContext';
 import { SettingsProvider } from './context/SettingsContext';
+import { TransactionProvider } from './context/TransactionContext';
 
 describe('App', () => {
     it('renders title', () => {
         render(
             <ThemeProvider>
                 <SettingsProvider>
-                    <App />
+                    <TransactionProvider>
+                        <App />
+                    </TransactionProvider>
                 </SettingsProvider>
             </ThemeProvider>
         );

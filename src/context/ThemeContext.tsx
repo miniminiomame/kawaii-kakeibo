@@ -1,26 +1,35 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
-
-type Theme = 'default' | 'pixel';
+import { getTheme } from '../themes';
+import { type ThemeConfig } from '../themes/types';
 
 interface ThemeContextType {
-    theme: Theme;
-    setTheme: (theme: Theme) => void;
+    themeConfig: ThemeConfig;
+    setThemeId: (id: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [theme, setThemeState] = useState<Theme>(() => {
-        return (localStorage.getItem('theme') as Theme) || 'default';
+    const [themeId, setThemeId] = useState<string>(() => {
+        return localStorage.getItem('theme') || 'default';
     });
 
+    const themeConfig = getTheme(themeId);
+
     useEffect(() => {
-        localStorage.setItem('theme', theme);
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
+        localStorage.setItem('theme', themeId);
+
+        // Apply global attributes for backward compatibility or global selectors
+        document.documentElement.setAttribute('data-theme', themeId);
+
+        // Apply dynamic CSS variables from the config
+        Object.entries(themeConfig.styles).forEach(([key, value]) => {
+            document.documentElement.style.setProperty(key, value);
+        });
+    }, [themeId, themeConfig]);
 
     return (
-        <ThemeContext.Provider value={{ theme, setTheme: setThemeState }}>
+        <ThemeContext.Provider value={{ themeConfig, setThemeId }}>
             {children}
         </ThemeContext.Provider>
     );
