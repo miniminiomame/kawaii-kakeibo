@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout } from './components/Layout';
+import { Layout } from './components/layout/Layout';
 // Button removed as it is used in sub-components, not here anymore
 import { BottomNav } from './components/ui/BottomNav';
 import { TransactionForm } from './features/transactions/TransactionForm';
